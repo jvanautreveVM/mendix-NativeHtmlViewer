@@ -4,13 +4,15 @@ import { createElement } from "react";
 
 export const NativeHtmlRenderer = props => {
     const { width } = useWindowDimensions();
+    const customMarginSecure = props.customMargin ? props.customMargin : 0;
     const source = {
         html: props.content ? props.content : ""
     };
     const darkMode = Appearance.getColorScheme() === "dark";
     const defaultStyle = {
         body: {
-            color: darkMode ? "#FFF" : "#0A1325" // Default text color
+            color: darkMode ? "#FFF" : "#00385A", // Default text color
+            maxWidth: width-customMarginSecure
         }
     };
     // The mergeNativeStyles function only includes from the style prop what already exists in the default style.
@@ -23,9 +25,10 @@ export const NativeHtmlRenderer = props => {
     if (props.ignoredStyles) {
         ignoredStyles = props.ignoredStyles.split(",");
     }
+    //console.info("width margin to substract"+(width-customMarginSecure));
     return (
         <RenderHtml
-            contentWidth={width}
+            contentWidth={width-customMarginSecure}
             source={source}
             tagsStyles={styles}
             ignoredStyles={ignoredStyles}

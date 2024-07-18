@@ -13,6 +13,7 @@ export const NativeHtmlViewer = props => {
             content={props.content?.value}
             ignoredStyles={props.ignoredStyles?.value}
             enableCSSInlineProcessing={enableCSSInlineProcessingValue}
+            customMargin={props.customMargin?.value}
         ></NativeHtmlRenderer>
     );
 };

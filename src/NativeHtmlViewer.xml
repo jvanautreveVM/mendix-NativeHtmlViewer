@@ -15,6 +15,11 @@
                     <attributeType name="String" />
                 </attributeTypes>
             </property>
+            <property key="customMargin" type="expression" required="false">
+                <caption>customMargin</caption>
+                <description>The customMargin of the content to display</description>
+                <returnType type="Integer" />
+            </property>
             <property key="ignoredStyles" type="expression" required="false">
                 <caption>Ignored styles</caption>
                 <description>Style attributes to ignore, like color to use the color from the native app style or widget default. Important! Values are camelCased: background-color must be passed as backgroundColor. Separate multiple values using a comma.</description>
